@@ -1,19 +1,22 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-
-dotenv.config();
+// src/app.js
+const express = require('express');
+const mongoose = require('mongoose');
+const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
 // Routes
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World! Now Start Harsh Coding!" });
-});
+app.use('/api/auth', authRoutes);
 
-export default app;
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/admin_dashboard', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
+
+module.exports = app;

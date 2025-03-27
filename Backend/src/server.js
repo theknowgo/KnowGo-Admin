@@ -1,20 +1,8 @@
-import dotenv from "dotenv";
-import { createServer } from "http";
-import app from "./app.js";
+// src/server.js
+const app = require('./app');
 
-// Load environment variables
-dotenv.config();
+const PORT = process.env.PORT || 3000;
 
-// Set port
-const PORT = process.env.PORT || 5000;
-
-// Connect to MongoDB
-// connectDB();
-
-// Create HTTP Server
-const server = createServer(app);
-
-// Start server
-server.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
