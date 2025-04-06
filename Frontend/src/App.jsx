@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound.jsx";
 import Localmate from "./pages/localmate.jsx";
 import LocalmateList from "./pages/localmateList.jsx";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/navbar.jsx";
 import AdminProvider from "./context/ContextProvider.jsx";
 function App() {
   return (
